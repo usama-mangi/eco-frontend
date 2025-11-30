@@ -1,0 +1,35 @@
+@import "tailwindcss";
+body {
+  @apply bg-slate-950 text-white antialiased selection:bg-emerald-500/30;
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.08), transparent 25%), 
+    radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 25%);
+}
+
+.glass-card {
+  @apply bg-slate-900/40 backdrop-blur-xl border border-white/10 shadow-2xl;
+}
+
+/* Scanning Laser Animation */
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.scanning-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #34d399;
+  box-shadow: 0 0 10px #34d399, 0 0 20px #34d399;
+  animation: scan 2s linear infinite;
+  z-index: 10;
+}
+
+.scanning-overlay {
+  @apply absolute inset-0 bg-emerald-500/10;
+  mask-image: linear-gradient(to bottom, transparent, black 50%, transparent);
+}
