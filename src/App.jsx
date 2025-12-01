@@ -80,10 +80,6 @@ function App() {
       await fetchEventSource(API_URL, {
         method: "POST",
         body: formData,
-        headers: {
-          "Content-Type": "appliation/json",
-          "ngrok-skip-browser-warning": "true"
-        },
         onmessage(ev) {
           const data = JSON.parse(ev.data);
 
